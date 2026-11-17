@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+minversion = "9.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers -p no:deepeval"
+markers = [
+  "llm: requires a live LLM judge or live model API call and consumes quota",
+  "fast: deterministic test with no network calls",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]

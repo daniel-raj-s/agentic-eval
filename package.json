@@ -1,0 +1,17 @@
+{
+  "name": "agentic-eval-promptfoo",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Promptfoo assertion and red-team suites for the e-commerce support agent",
+  "engines": {
+    "node": ">=20.18"
+  },
+  "scripts": {
+    "eval": "promptfoo eval -c tests/promptfoo/promptfooconfig.yaml -o results/promptfoo-results.json --no-cache",
+    "redteam": "promptfoo redteam generate -c tests/promptfoo/redteam.yaml -o tests/promptfoo/redteam-generated.yaml --no-cache && node scripts/inject_redteam_grader.js tests/promptfoo/redteam-generated.yaml && promptfoo eval -c tests/promptfoo/redteam-generated.yaml -o results/promptfoo-redteam-results.json -j 1 --delay 10000 --no-cache",
+    "view": "promptfoo view"
+  },
+  "devDependencies": {
+    "promptfoo": "0.125.1"
+  }
+}

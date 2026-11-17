@@ -1,0 +1,64 @@
+[
+  {
+    "id": "tc_001_order_status",
+    "query": "Where is my order ORD-1003 and when will it arrive?",
+    "expected_tool": "get_order_status",
+    "expected_tool_args": {"order_id": "ORD-1003"},
+    "expected_context": [
+      "Order ORD-1003 is Shipped with delivery expected on 2026-11-20."
+    ],
+    "ground_truth": "Your order ORD-1003 has been shipped and is scheduled for delivery on November 20, 2026. It contains an Ergonomic Mechanical Keyboard.",
+    "evaluation_metrics": ["AnswerRelevancy", "Faithfulness", "ToolCorrectness"]
+  },
+  {
+    "id": "tc_002_return_eligible",
+    "query": "I bought headphones on order ORD-1001. Can I return them because I changed my mind?",
+    "expected_tool": "calculate_refund",
+    "expected_tool_args": {"order_id": "ORD-1001", "reason": "buyer_remorse"},
+    "expected_context": [
+      "Customers can return items within 30 days of delivery for a refund of the item price if the item is in original condition with packaging.",
+      "For buyer's remorse, a flat $5.99 return shipping fee is deducted from the refund.",
+      "Order ORD-1001 was delivered on 2026-11-05 and is eligible for return.",
+      "Order ORD-1001 has an original total of $149.99, so the refund after the $5.99 fee is $144.00."
+    ],
+    "ground_truth": "Yes, order ORD-1001 was delivered on 2026-11-05 and falls within our 30-day return window. Since this is buyer's remorse, a $5.99 return shipping fee will be deducted from your $149.99 refund, yielding a total refund of $144.00.",
+    "evaluation_metrics": ["AnswerRelevancy", "Faithfulness", "Hallucination", "ToolCorrectness"]
+  },
+  {
+    "id": "tc_003_cancellation_processing",
+    "query": "Can I cancel my order ORD-1002 right now?",
+    "expected_tool": "cancel_order",
+    "expected_tool_args": {"order_id": "ORD-1002"},
+    "expected_context": [
+      "Orders can be cancelled at no penalty within 1 hour of placement or as long as the status is 'Processing'.",
+      "Order ORD-1002 is currently Processing."
+    ],
+    "ground_truth": "Yes, since your order ORD-1002 is currently in 'Processing' status, it has been successfully cancelled at no penalty.",
+    "evaluation_metrics": ["AnswerRelevancy", "Faithfulness", "ToolCorrectness"]
+  },
+  {
+    "id": "tc_004_non_refundable_item",
+    "query": "I want to return order ORD-1004 (Custom Engraved Leather Wallet). How much refund do I get?",
+    "expected_tool": "calculate_refund",
+    "expected_tool_args": {"order_id": "ORD-1004", "reason": "return_request"},
+    "expected_context": [
+      "Digital downloads and personalized items are strictly non-refundable.",
+      "Order ORD-1004 was delivered on 2026-10-01 (past 30 days) and contains a Custom Engraved item."
+    ],
+    "ground_truth": "Unfortunately, order ORD-1004 is not eligible for a refund because personalized and custom-engraved items are strictly non-refundable, and it also exceeds the 30-day return window.",
+    "evaluation_metrics": ["AnswerRelevancy", "Faithfulness", "Hallucination"]
+  },
+  {
+    "id": "tc_005_shipping_timeline_rag",
+    "query": "If I place an order right now before 2 PM, how fast will standard domestic shipping take?",
+    "expected_tool": "search_knowledge_base",
+    "expected_tool_args": {"query": "shipping delivery timelines domestic express cut off"},
+    "expected_context": [
+      "Standard domestic shipping takes 3 to 5 business days.",
+      "Orders placed before 2 PM EST ship the same business day."
+    ],
+    "ground_truth": "Standard domestic shipping takes 3 to 5 business days. Since your order is placed before 2 PM EST, it will ship out today.",
+    "evaluation_metrics": ["AnswerRelevancy", "Faithfulness"]
+  }
+]
+

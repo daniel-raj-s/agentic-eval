@@ -1,0 +1,59 @@
+{
+  "policies": [
+    {
+      "id": "return-policy",
+      "title": "Return and Exchange Policy",
+      "content": "Customers can return items within 30 days of delivery for a refund of the item price if the item is in original condition with packaging. A flat $5.99 return shipping fee applies to buyer's remorse returns and is deducted from that refund; return shipping is free for damaged or incorrect items. Digital downloads and personalized items are strictly non-refundable."
+    },
+    {
+      "id": "shipping-policy",
+      "title": "Shipping and Delivery Timelines",
+      "content": "Standard domestic shipping takes 3 to 5 business days. Express shipping takes 1 to 2 business days. International shipping takes 7 to 14 business days. Orders placed before 2 PM EST ship the same business day. Tracking information is updated within 24 hours of shipment dispatch."
+    },
+    {
+      "id": "cancellation-policy",
+      "title": "Order Cancellation Policy",
+      "content": "Orders can be cancelled at no penalty within 1 hour of placement or as long as the status is 'Processing'. Once an order status changes to 'Shipped' or 'Out for Delivery', it cannot be cancelled and must proceed through the standard return process upon arrival."
+    },
+    {
+      "id": "warranty-policy",
+      "title": "Hardware Warranty",
+      "content": "All electronic devices carry a 1-year limited manufacturer warranty covering hardware defects. Accidental damage, water damage, and unauthorized third-party repairs void the warranty."
+    }
+  ],
+  "mock_orders": {
+    "ORD-1001": {
+      "customer_id": "CUST-882",
+      "status": "Delivered",
+      "items": [{"name": "Wireless Noise-Canceling Headphones", "price": 149.99, "qty": 1}],
+      "delivery_date": "2026-11-05",
+      "total": 149.99,
+      "eligible_for_return": true
+    },
+    "ORD-1002": {
+      "customer_id": "CUST-914",
+      "status": "Processing",
+      "items": [{"name": "Smart Fitness Watch", "price": 199.99, "qty": 1}],
+      "delivery_date": null,
+      "total": 199.99,
+      "eligible_for_return": false
+    },
+    "ORD-1003": {
+      "customer_id": "CUST-331",
+      "status": "Shipped",
+      "items": [{"name": "Ergonomic Mechanical Keyboard", "price": 129.00, "qty": 1}],
+      "delivery_date": "2026-11-20",
+      "total": 129.00,
+      "eligible_for_return": false
+    },
+    "ORD-1004": {
+      "customer_id": "CUST-450",
+      "status": "Delivered",
+      "items": [{"name": "Custom Engraved Leather Wallet", "price": 59.99, "qty": 1}],
+      "delivery_date": "2026-10-01",
+      "total": 59.99,
+      "eligible_for_return": false
+    }
+  }
+}
+
