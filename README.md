@@ -1,5 +1,13 @@
 # 🤖 AI Agent Evaluation Pipeline & CI/CD Quality Gate
 
+[![AI Quality Gate](https://github.com/daniel-raj-s/agentic-eval/actions/workflows/ai-quality-gate.yml/badge.svg)](https://github.com/daniel-raj-s/agentic-eval/actions/workflows/ai-quality-gate.yml)
+[![DeepEval](https://img.shields.io/badge/DeepEval-Semantic%20Metrics-4F46E5?style=flat-square&logo=python)](https://github.com/confident-ai/deepeval)
+[![Promptfoo](https://img.shields.io/badge/Promptfoo-Security%20%26%20RedTeam-00D26A?style=flat-square&logo=node.js)](https://www.promptfoo.dev)
+[![Python](https://img.shields.io/badge/Python-3.13%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Node](https://img.shields.io/badge/Node.js-24%20LTS-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![OWASP LLM](https://img.shields.io/badge/OWASP-Top%2010%20LLM%20Security-orange?style=flat-square)](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+[![Live Portfolio](https://img.shields.io/badge/Portfolio-daniel--raj--s.github.io-00f2fe?style=flat-square&logo=github)](https://daniel-raj-s.github.io/portfolio/)
+
 An end-to-end evaluation harness for a tool-calling customer-support agent. It
 combines **DeepEval** semantic metrics, **Promptfoo** deterministic/security
 assertions and an explicit **quality gate** so a regression blocks a merge
@@ -99,11 +107,11 @@ chmod +x scripts/run_all_evals.sh
 
 Artifacts are written to `results/`:
 
-- `deepeval_metrics*.json` — one record per metric measurement
-- `promptfoo-results.json` — assertion/security suite
-- `promptfoo-redteam-results.json` — optional red-team scan
-- `quality_gate_report.md` — human-readable report
-- `quality_gate_summary.json` — machine-readable decision
+- `deepeval_metrics*.json`, one record per metric measurement
+- `promptfoo-results.json`, assertion/security suite
+- `promptfoo-redteam-results.json`, optional red-team scan
+- `quality_gate_report.md`, human-readable report
+- `quality_gate_summary.json`, machine-readable decision
 
 ### 4. Step-by-step
 
